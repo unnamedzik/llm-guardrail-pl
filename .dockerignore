@@ -1,0 +1,11 @@
+*.gguf
+*.bin
+.venv
+__pycache__
+.pytest_cache
+.git
+.gitignore
+README.md
+*.ipynb
+.ipynb_checkpoints
+notebooks/
