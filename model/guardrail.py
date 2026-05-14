@@ -28,11 +28,11 @@ class GuardRail:
             verbose=False,
         )
 
-        self.system_propmpt = self.config["guardrail"]["system_prompt"]
+        self.system_prompt = self.config["guardrail"]["system_prompt"]
 
     def evaluate(self, user_prompt: str):
         messages = [
-            {"role": "system", "content": self.system_propmpt},
+            {"role": "system", "content": self.system_prompt},
             {"role": "user", "content": f"Oceń następujący prompt: <<{user_prompt}>>"},
         ]
 
