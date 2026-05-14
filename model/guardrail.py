@@ -16,14 +16,11 @@ class GuardRail:
         with open(config_path, "r", encoding="utf-8") as f:
             self.config = yaml.safe_load(f)
 
+        model_path = hf_hub_download(
+            repo_id=self.config["model"]["repo_id"],
+            filename=self.config["model"]["filename"]
+        )
 
-        # model_path = hf_hub_download(
-        #     repo_id=self.config["model"]["repo_id"],
-        #     filename=self.config["model"]["filename"]
-        # )
-
-        model_path= "/home/krzysztof/llm-guardrail-pl/mistralai_Ministral-3-8B-Instruct-2512-Q4_K_M.gguf"
-    
         self.llm = Llama(
             model_path=model_path,
             n_gpu_layers=self.config["model"]["n_gpu_layers"],
